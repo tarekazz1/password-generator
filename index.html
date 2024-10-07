@@ -4,64 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="gradient-bg">
-        <svg viewBox="0 0 100vw 100vw" xmlns='http://www.w3.org/2000/svg' class="noiseBg">
-            <filter id='noiseFilterBg'>
-                <feTurbulence type='fractalNoise' baseFrequency='0.6' stitchTiles='stitch' />
-            </filter>
-            <rect width='100%' height='100%' preserveAspectRatio="xMidYMid meet" filter='url(#noiseFilterBg)' />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" class="svgBlur">
-            <defs>
-                <filter id="goo">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
-                    <feBlend in="SourceGraphic" in2="goo" />
-                </filter>
-            </defs>
-        </svg>
-        <div class="gradients-container">
-            <div class="g1"></div>
-            <div class="g2"></div>
-            <div class="g3"></div>
-            <div class="g4"></div>
-            <div class="g5"></div>
-            <div class="interactive"></div>
-        </div>
-    </div>
+    <div class="container">
+        <h1>Password Generator</h1>
+        <label for="site-name">Enter Site Name:</label>
+        <input type="text" id="site-name" placeholder="example.com">
 
-    <div class="card">
-        <svg viewBox="0 0 100% 100%" xmlns='http://www.w3.org/2000/svg' class="noise">
-            <filter id='noiseFilter'>
-                <feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='6' stitchTiles='stitch' />
-            </filter>
-            <rect width='100%' height='100%' preserveAspectRatio="xMidYMid meet" filter='url(#noiseFilter)' />
-        </svg>
-        <div class="content container">
-            <h1>Password Generator</h1>
-            <label for="site-name">Enter Site Name:</label>
-            <input type="text" id="site-name" placeholder="example.com">
-    
-            <label for="technique">Select Technique:</label>
-            <select id="technique">
-                <option value="hash">Hashing-Based</option>
-                <option value="pattern">Pattern-Based</option>
-                <option value="mnemonic">Mnemonic-Based</option>
-                <option value="shuffle">Character Shuffle</option>
-                <option value="leet">Leet Speak Encoding</option>
-            </select>
-    
-            <label for="secret-key">Enter Secret Phrase (optional):</label>
-            <input type="text" id="secret-key" placeholder="Your secret phrase">
-    
-            <button onclick="generatePassword()">Generate Password</button>
-    
-            <h3>Generated Password (Visible):</h3>
-            <p id="visible-password"></p>
-        </div>
+        <label for="technique">Select Technique:</label>
+        <select id="technique">
+            <option value="hash">Hashing-Based</option>
+            <option value="pattern">Pattern-Based</option>
+            <option value="mnemonic">Mnemonic-Based</option>
+            <option value="shuffle">Character Shuffle</option>
+            <option value="leet">Leet Speak Encoding</option>
+        </select>
+
+        <label for="secret-key">Enter Secret Phrase (optional):</label>
+        <input type="text" id="secret-key" placeholder="Your secret phrase">
+
+        <button onclick="generatePassword()">Generate Password</button>
+
+        <h3>Generated Password (Visible):</h3>
+        <p id="visible-password"></p>
     </div>
 
     <script src="script.js"></script>
