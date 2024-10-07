@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Password Generator</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Password Generator</h1>
+        <label for="site-name">Enter Site Name:</label>
+        <input type="text" id="site-name" placeholder="example.com">
+
+        <label for="technique">Select Technique:</label>
+        <select id="technique">
+            <option value="hash">Hashing-Based</option>
+            <option value="pattern">Pattern-Based</option>
+            <option value="mnemonic">Mnemonic-Based</option>
+            <option value="shuffle">Character Shuffle</option>
+            <option value="leet">Leet Speak Encoding</option>
+        </select>
+
+        <label for="secret-key">Enter Secret Phrase (optional):</label>
+        <input type="text" id="secret-key" placeholder="Your secret phrase">
+
+        <button onclick="generatePassword()">Generate Password</button>
+
+        <h3>Generated Password (Visible):</h3>
+        <p id="visible-password"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
