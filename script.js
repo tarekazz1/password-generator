@@ -1,4 +1,3 @@
-// Existing password generator functions
 function generatePassword() {
     const siteName = document.getElementById('site-name').value.trim();
     const technique = document.getElementById('technique').value;
@@ -22,12 +21,39 @@ function generatePassword() {
         case 'leet':
             visiblePassword = leetSpeakPassword(siteName, secretKey);
             break;
+        default:
+            visiblePassword = 'Invalid Technique';
     }
 
     document.getElementById('visible-password').textContent = visiblePassword;
 }
 
-// New interactivity from CodePen
+function hashBasedPassword(siteName, secretKey) {
+    return btoa(`${siteName}:${secretKey}`);
+}
+
+function patternBasedPassword(siteName, secretKey) {
+    return `${siteName.split('').reverse().join('')}-${secretKey}`;
+}
+
+function mnemonicBasedPassword(siteName, secretKey) {
+    return `${secretKey.slice(0, 3)}-${siteName.slice(-3)}`;
+}
+
+function characterShufflePassword(siteName, secretKey) {
+    const combined = (siteName + secretKey).split('');
+    for (let i = combined.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [combined[i], combined[j]] = [combined[j], combined[i]];
+    }
+    return combined.join('');
+}
+
+function leetSpeakPassword(siteName, secretKey) {
+    const leetMap = { 'a': '4', 'e': '3', 'i': '1', 'o': '0', 's': '5' };
+    return (siteName + secretKey).replace(/[aeios]/g, char => leetMap[char] || char);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const interBubble = document.querySelector('.interactive');
     let curX = 0;
